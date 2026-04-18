@@ -25,7 +25,8 @@ Return JSON shape:
     }
   ]
 }
-Distractors must be plausible words of similar register. Vary the answer key across items.`;
+Distractors must be plausible words of similar register.
+IMPORTANT: Distribute the correct answer position roughly evenly across A, B, C, and D. Do NOT place the correct answer at A for every item. Aim for roughly equal counts per position over the full set.`;
 
 export const READING_USER = `
 Create one Eiken Grade 1 style reading passage (roughly 380-450 words) on an academic

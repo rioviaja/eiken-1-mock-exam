@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { chatJSON } from "@/lib/json";
 import { SYSTEM_JSON, READING_USER } from "@/lib/prompts";
+import { shuffleMCQ } from "@/lib/shuffle";
 import type { ReadingPassage } from "@/lib/types";
 
 export const runtime = "nodejs";
@@ -19,7 +20,8 @@ export async function POST() {
         { status: 502 }
       );
     }
-    return NextResponse.json(data);
+    const questions = data.questions.map(shuffleMCQ);
+    return NextResponse.json({ ...data, questions });
   } catch (err) {
     return NextResponse.json(
       { error: (err as Error).message },
